@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.*;
 public class Gestisimag {
     public static void main(String[] args) {
         int menu = 0, supp = 0;
@@ -16,7 +16,7 @@ public class Gestisimag {
             switch (menu){
                 case 1:
                     for(Articulo i: articulos){
-                        i.llistat();
+                        i.dimevalores();
                     }
                     break;
                 case 2:
@@ -80,7 +80,21 @@ public class Gestisimag {
                         i.llistat();
                     }
                     supp = teclat.nextInt();
-
+                    articulos.get(supp-1).añadeStock();
+                    break;
+                case 6:
+                    System.out.println("A quin producte vols retirar stock:");
+                    for(Articulo i: articulos){
+                        i.llistat();
+                    }
+                    supp = teclat.nextInt();
+                    articulos.get(supp-1).retiraStock();
+                    break;
+                case 7:
+                    System.out.println("FIN DEL PROGRAMA");
+                    break;
+                default:
+                    System.out.println("Ese valor no es una opción");
             }
 
         }while (menu != 7);

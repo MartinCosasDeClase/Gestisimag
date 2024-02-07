@@ -69,4 +69,23 @@ public class Articulo {
         teclat.nextLine();
         return a;
     }
+    public void añadeStock(){
+        System.out.println("Que cantidad?");
+        int cantidad = teclat.nextInt();
+        this.stock += cantidad;
+        System.out.println("Operación realizada");
+    }
+    public void retiraStock(){
+        System.out.println("Que cantidad?");
+        int cantidad = teclat.nextInt();
+        if(cantidad > this.stock){
+            System.err.println("No hay suficientes productos");
+        } else{
+            this.stock -= cantidad;
+            System.out.println("Operación realizada");
+        }
+    }
+    public void dimevalores(){
+        System.out.println(this.descripcio + " en codi " + this.codi + " en preu de compra " + this.preucompra + " y preu de vennda de " + this.preuventa + " y en queden "+ this.stock);
+    }
 }
